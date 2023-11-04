@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='utf-8'?>
+<interface version="1.3">
+  <object class="tk.Toplevel" id="main_window" named="True">
+    <property name="geometry">640x480</property>
+    <property name="height">200</property>
+    <property name="highlightbackground">#77adca</property>
+    <property name="highlightcolor">#77adca</property>
+    <property name="resizable">none</property>
+    <property name="title" translatable="yes">Cryptography</property>
+    <property name="width">200</property>
+    <child>
+      <object class="tk.Frame" id="transpo_frame" named="True">
+        <property name="background">#D4A373</property>
+        <property name="height">400</property>
+        <property name="width">200</property>
+        <layout manager="pack">
+          <property name="anchor">s</property>
+          <property name="expand">true</property>
+          <property name="fill">x</property>
+          <property name="side">bottom</property>
+        </layout>
+        <child>
+          <object class="tk.Button" id="encrypt_button_t" named="True">
+            <property name="background">#CCD5AE</property>
+            <property name="font">{times} 16 {bold}</property>
+            <property name="foreground">#DDA15E</property>
+            <property name="text" translatable="yes">Encrypt</property>
+            <bind sequence="&lt;Button&gt;" handler="encrypt_action" add="" />
+            <layout manager="place">
+              <property name="anchor">center</property>
+              <property name="relx">.5</property>
+              <property name="rely">.6</property>
+              <property name="x">0</property>
+              <property name="y">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Label" id="plaintext_label_t" named="True">
+            <property name="background">#D4A373</property>
+            <property name="font">{times new roman} 16 {}</property>
+            <property name="foreground">#FEFAE0</property>
+            <property name="text" translatable="yes">Plaintext:</property>
+            <layout manager="place">
+              <property name="anchor">center</property>
+              <property name="relx">0.21</property>
+              <property name="rely">.25</property>
+              <property name="x">0</property>
+              <property name="y">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Entry" id="plaintext_entry_t" named="True">
+            <property name="background">#FEFAE0</property>
+            <property name="font">{times} 16 {}</property>
+            <property name="foreground">#D4A373</property>
+            <layout manager="place">
+              <property name="anchor">center</property>
+              <property name="relwidth">0.75</property>
+              <property name="relx">.515</property>
+              <property name="rely">0.35</property>
+              <property name="x">0</property>
+              <property name="y">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Frame" id="answer_frame_t" named="True">
+            <property name="background">#D4A373</property>
+            <property name="height">200</property>
+            <property name="width">200</property>
+            <layout manager="place">
+              <property name="anchor">center</property>
+              <property name="relheight">0.26</property>
+              <property name="relwidth">0.73</property>
+              <property name="relx">.5</property>
+              <property name="rely">0.8</property>
+              <property name="x">0</property>
+              <property name="y">0</property>
+            </layout>
+            <child>
+              <object class="tk.Label" id="ciphertext_label_t" named="True">
+                <property name="background">#D4A373</property>
+                <property name="font">{Times} 16 {}</property>
+                <property name="foreground">#FEFAE0</property>
+                <property name="text" translatable="yes">Ciphertext:</property>
+                <layout manager="place">
+                  <property name="anchor">center</property>
+                  <property name="relx">0.1</property>
+                  <property name="rely">.45</property>
+                  <property name="x">0</property>
+                  <property name="y">0</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Label" id="ciphertext_answer_t" named="True">
+                <property name="background">#D4A373</property>
+                <property name="font">{Times} 12 {}</property>
+                <property name="foreground">#FEFAE0</property>
+                <property name="text" translatable="yes">-</property>
+                <layout manager="place">
+                  <property name="anchor">center</property>
+                  <property name="relx">0.25</property>
+                  <property name="rely">.75</property>
+                  <property name="x">0</property>
+                  <property name="y">0</property>
+                </layout>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
