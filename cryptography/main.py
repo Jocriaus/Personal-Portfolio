@@ -107,9 +107,9 @@ class MainuiApp:
             background=very_dark,
             font="{Times} 12 {}",
             foreground=very_light,
-            text='-')
+            text='')
         self.ciphertext_answer_c.place(
-            anchor="center", relx=0.25, rely=.75, x=0, y=0)
+            anchor="center", relx=0.4, rely=.75, x=0, y=0)
         self.answer_frame_c.place(
             anchor="center",
             relheight=0.26,
@@ -193,9 +193,9 @@ class MainuiApp:
             background=very_dark,
             font="{Times} 16 {}",
             foreground=very_light,
-            text='-')
+            text='')
         self.ciphertext_answer_k.place(
-            anchor="center", relx=0.25, rely=.75, x=0, y=0)
+            anchor="center", relx=0.4, rely=.75, x=0, y=0)
         self.answer_frame_k.place(
             anchor="center",
             relheight=0.26,
@@ -293,8 +293,8 @@ class MainuiApp:
             background=very_dark,
             font="{Times} 12 {}",
             foreground=very_light,
-            text='-')
-        self.ciphertext_answer_g.place(anchor="center", relx=0.25, rely=.75, x=0, y=0)
+            text='')
+        self.ciphertext_answer_g.place(anchor="center", relx=0.4, rely=.75, x=0, y=0)
         self.answer_frame_g.place(
             anchor="center",
             relheight=0.26,
@@ -360,9 +360,9 @@ class MainuiApp:
             background="#D4A373",
             font="{Times} 12 {}",
             foreground="#FEFAE0",
-            text='-')
+            text='')
         self.ciphertext_answer_t.place(
-            anchor="center", relx=0.25, rely=.75, x=0, y=0)
+            anchor="center", relx=0.4, rely=.75, x=0, y=0)
         self.answer_frame_t.place(
             anchor="center",
             relheight=0.26,
@@ -402,7 +402,7 @@ class MainuiApp:
     def do_giovannis_method(self):
         if ((self.plaintext_entry_g.get().isalpha() or self.plaintext_entry_g.get() == "") and (self.keyword_entry_g.get().isalpha() or self.keyword_entry_g.get() == "") 
         and (self.key_letter_entry.get().isalpha() or self.key_letter_entry.get() == "")):
-            ciphertext = crypt.giovanni_cipher(self.plaintext_entry_g.get(), self.keyword_entry_g.get(),self.key_letter_entry.get())
+            ciphertext = crypt.giovanni_cipher_encrypt(self.plaintext_entry_g.get(), self.keyword_entry_g.get(),self.key_letter_entry.get())
             self.ciphertext_answer_g.config(text=ciphertext)
         else:  
             tm.showerror(title=None, message="Use Number for Shift; Letters for Plaintext")

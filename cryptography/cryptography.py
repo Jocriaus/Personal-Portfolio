@@ -2,7 +2,6 @@ import string
 
 def caeasar_shift(plaintext, num_of_shift):
     ciphertext = ""
-    #ciphertext = ''.join(chr(ord(character) + num_of_shift) for character in plaintext)
 
     for element in plaintext:
         print(element)
@@ -22,10 +21,11 @@ def caeasar_shift(plaintext, num_of_shift):
             ciphertext += chr(new_char)
         else:
             ciphertext += old_char  # Keep non-alphabetic characters unchanged
+    ciphertext = ciphertext.upper()
     return ciphertext
     
 
-def generate_cipher_alphabet(keyword):
+def generate_keyword_cipher_alphabet(keyword):
     alphabet = string.ascii_uppercase
     keyword = keyword.upper()
     cipher_alphabet = ""
@@ -44,7 +44,7 @@ def generate_cipher_alphabet(keyword):
 
 
 def keyword_cipher_encrypt(text, keyword):
-    cipher_alphabet = generate_cipher_alphabet(keyword)
+    cipher_alphabet = generate_keyword_cipher_alphabet(keyword)
     text = text.upper()
     encrypted_text = ""
 
@@ -57,28 +57,48 @@ def keyword_cipher_encrypt(text, keyword):
 
     return encrypted_text
 
-
-
-def giovanni_cipher(text, keyword, key_letter, decrypt=False):
-    text = text.upper()
+def generate_giovanni_cipher_alphabet(keyword, starting_letter):
+    alphabet = string.ascii_uppercase
     keyword = keyword.upper()
-    key_letter = key_letter.upper()
+    kw_len = len(keyword)
+    starting_letter = starting_letter.upper()
+    starting_letter_index = alphabet.index(starting_letter)
+    total_alphabet = 26 - starting_letter_index
 
-    key = (keyword + key_letter * (len(text) // len(keyword)))[:len(text)]
-    print(key)
-    result = ""
-    for i in range(len(text)):
-        if text[i].isalpha():
-            keyword_shift = string.ascii_uppercase.index(key[i]) + 1
-            text_shift = string.ascii_uppercase.index(text[i]) + 1
-            shift = keyword_shift if not decrypt else -keyword_shift
-            shifted_index = (text_shift + shift - 1) % 26
-            result += string.ascii_uppercase[shifted_index]
-            print(result)
+    cipher_alphabet = ""
+    final_letters = ""
+
+    count = kw_len
+    for char in alphabet:
+        char = char.upper()
+        if char not in keyword and char in string.ascii_uppercase:
+            if count<total_alphabet:
+                cipher_alphabet += char
+                count+=1
+                print(cipher_alphabet)
+                print(count)
+            elif total_alphabet<=count:
+                final_letters +=char
+                count+=1
+                print(final_letters)
+                print(count)
+
+    cipher_alphabet = final_letters+ keyword +cipher_alphabet
+    return cipher_alphabet    
+
+def giovanni_cipher_encrypt(text, keyword, starting_char):
+    cipher_alphabet = generate_giovanni_cipher_alphabet(keyword, starting_char)
+    text = text.upper()
+    encrypted_text = ""
+
+    for char in text:
+        if char.isalpha():
+            index = string.ascii_uppercase.index(char)
+            encrypted_text += cipher_alphabet[index]
         else:
-            result += text[i]
-    print(result)
-    return result
+            encrypted_text += char
+
+    return encrypted_text
 
 def transposition(text):
 
