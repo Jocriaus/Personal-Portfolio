@@ -1,5 +1,9 @@
 import string
 
+# It is a type of substitution cipher in which 
+# each letter in the plaintext is shifted to a certain number of places down the alphabet. For example, with a shift 
+# of 1, A would be replaced by B, B would become C, and so on.
+
 def caeasar_shift(plaintext, num_of_shift):
     ciphertext = ""
 
@@ -25,6 +29,13 @@ def caeasar_shift(plaintext, num_of_shift):
     return ciphertext
     
 
+# To use this method for constructing the ciphertext alphabet, pick a keyword and write it 
+# down while ignoring the repeated letters. Follow it with the letters of the alphabet that have not yet been used. 
+# For example, find the alphabet pairs for the keyword COLLEGE. Crossing out the letters that are making their 
+# second appearance leaves COLEG. To encipher, use the pair of alphabets. 
+# Top row: Plaintext – This will be the basis for getting the letters from the ciphertext. 
+# Bottom row: Ciphertext – The letters will come from this row to get the answer.
+
 def generate_keyword_cipher_alphabet(keyword):
     alphabet = string.ascii_uppercase
     keyword = keyword.upper()
@@ -38,10 +49,8 @@ def generate_keyword_cipher_alphabet(keyword):
         if char not in cipher_alphabet:
             cipher_alphabet += char
 
-
     print(cipher_alphabet)
     return cipher_alphabet
-
 
 def keyword_cipher_encrypt(text, keyword):
     cipher_alphabet = generate_keyword_cipher_alphabet(keyword)
@@ -56,6 +65,13 @@ def keyword_cipher_encrypt(text, keyword):
             encrypted_text += char
 
     return encrypted_text
+
+# Giovanni's Method says that one can also pick a keyletter and 
+# begin the keyword UNDER that letter of the plaintext
+# To use Giovanni’s method with key letter “P,” start the word “COLEG” under “PQRST” then place the remaining 
+# letters to the right to convert the plaintext to ciphertext.
+# Top row: Plaintext – This will be the basis for getting the letters from the ciphertext.
+# Bottom row: Ciphertext – The letters will come from this row to get the answer
 
 def generate_giovanni_cipher_alphabet(keyword, starting_letter):
     alphabet = string.ascii_uppercase
@@ -98,14 +114,18 @@ def giovanni_cipher_encrypt(text, keyword, starting_char):
         else:
             encrypted_text += char
 
-    return encrypted_text
+    return encrypted_text.upper()
 
+# The Transposition Cipher gets the odd(first string) and even(second string) 
+# then combines them together as the encrypted text
 def transposition(text):
 
     transposit = ""
     first_str = ""
     second_str = ""
     index = 0
+
+    # The loop divides the words into two strings
     for letter in text:
         
         modulo = index % 2
@@ -120,6 +140,6 @@ def transposition(text):
             second_str += letter
             print(second_str)
         index +=1
-        
+    # This combines the divided strings 
     transposit= first_str + second_str
     return transposit.upper()
