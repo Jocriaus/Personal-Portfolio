@@ -389,6 +389,7 @@ class MainuiApp:
         if (self.plaintext_entry_c.get().isalpha() or self.plaintext_entry_c.get() == "") and (self.shift_entry.get().isdigit() or self.shift_entry.get() == ""):
             ciphertext = crypt.caeasar_shift(self.plaintext_entry_c.get(), self.shift_entry.get()) 
             self.ciphertext_answer_c.config(text=ciphertext)
+            print(ciphertext)
         else:  
             tm.showerror(title=None, message="Use Number for Shift; Letters for Plaintext")
 
@@ -396,6 +397,7 @@ class MainuiApp:
         if (self.plaintext_entry_k.get().isalpha() or self.plaintext_entry_k.get() == "") and (self.keyword_entry_k.get().isalpha() or self.keyword_entry_k.get() == ""):
             ciphertext = crypt.keyword_cipher_encrypt(self.plaintext_entry_k.get(), self.keyword_entry_k.get())
             self.ciphertext_answer_k.config(text=ciphertext)
+            print(ciphertext)
         else:  
             tm.showerror(title=None, message="Use Letters for Plaintext and Keyword")
 
@@ -404,6 +406,7 @@ class MainuiApp:
         and (self.key_letter_entry.get().isalpha() or self.key_letter_entry.get() == "")):
             ciphertext = crypt.giovanni_cipher_encrypt(self.plaintext_entry_g.get(), self.keyword_entry_g.get(),self.key_letter_entry.get())
             self.ciphertext_answer_g.config(text=ciphertext)
+            print(ciphertext)
         else:  
             tm.showerror(title=None, message="Use Number for Shift; Letters for Plaintext")
 
@@ -411,6 +414,9 @@ class MainuiApp:
         if (self.plaintext_entry_t.get().isalpha() or self.plaintext_entry_t.get() == ""):
             ciphertext = crypt.transposition(self.plaintext_entry_t.get())
             self.ciphertext_answer_t.config(text=ciphertext)
+            print(ciphertext)
+        else:  
+            tm.showerror(title=None, message="Use Number for Shift; Letters for Plaintext")
         
 
 
