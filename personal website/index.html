@@ -14,8 +14,7 @@
                 <ul>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">About</a></li>
-                    <li><a href="#">Skills</a></li>
-                    <li><a href="#">Project</a></li>
+                    <li><a href="#">Projects</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
             </nav>
@@ -38,11 +37,82 @@
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                         Iure nisi eius, deserunt distinctio ullam, 
                         libero unde enim officiis eos expedita delectus. 
-                        Odit quam quas quisquam aut quod commodi dolorum cum!</p>
-                    .ta
+                        Odit quam quas quisquam aut quod commodi dolorum cum!
+                    </p>
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>UI/UX</span><br>Designing Web/App interfaces</li>
+                            <li><span>Software Development</span><br>Building Computer Softwares</li>
+                            <li><span>Scrum</span><br>Managing tasks and collaboration</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span>2023 - Current</span><br>Part time ICT Instructor at STI College Balagtas</li>
+                            <li><span>2022 - 2023</span><br>Software Engineering for Thesis Deliverable</li>
+                            <li><span>2022</span><br>Internship as Scrum Master and UI/UX Designer at Devkinetics</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2019 - 2023</span><br>STI College Balagtas - Magna Cum Laude</li>
+                            <li><span>2013 - 2019</span><br>Assumpta Academy - With Honors</li>
+                            <li><span>2007 - 2013</span><br>Sta. Ines Elementary School - Salutatorian</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+<!-- -----------services---------- -->
+
+    <div id="services">
+        <div class="containter">
+            <h1 class="sub-title">My Services</h1>
+            <div class="services-list">
+                <div>
+                    <h2>Web Design</h2>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem laboriosam inventore quasi placeat accusantium? Similique, esse?
+                    Numquam aut ut soluta eaque quo, repudiandae, voluptate eligendi qui minus, fuga perspiciatis nam.</p>
+                    <a href="#">learn more</a>
+                </div>
+                <div>
+                    <h2>UI/UX Design</h2>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem laboriosam inventore quasi placeat accusantium? Similique, esse?
+                    Numquam aut ut soluta eaque quo, repudiandae, voluptate eligendi qui minus, fuga perspiciatis nam.</p>
+                    <a href="#">learn more</a>
+                </div>
+                <div>
+                    <h2>Software Development</h2>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem laboriosam inventore quasi placeat accusantium? Similique, esse?
+                    Numquam aut ut soluta eaque quo, repudiandae, voluptate eligendi qui minus, fuga perspiciatis nam.</p>
+                    <a href="#">learn more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+
+</script>
+
 </body>
 </html>
