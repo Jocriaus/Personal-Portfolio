@@ -1,7 +1,8 @@
 class designAlgo:
 
     def selection_sort( sample_list ):
-        # time of completion one hour and thirty mins
+        # no repeating numbers should be inside the array
+        # time of completion: one hour and thirty mins
         for x in range(len(sample_list)):
             # for x is equal to the value that we compare
             current_var = sample_list[x]
@@ -16,4 +17,16 @@ class designAlgo:
                 sample_list[sample_list.index(smaller_var)] = current_var        
                 sample_list[x] = smaller_var    
     
-    
+    def bubble_sort( sample_list ):    
+        # time of completion: thirty mins
+        for y in range(len(sample_list)):
+            for x in range(len(sample_list), -1, -1):
+                # will start at the end of the array 
+                # putting the largest to the furtherst index
+                if x-2 >=0:
+                    current_var = sample_list[x-1]
+                    current_next_var = sample_list[x-2]
+                    if current_var < current_next_var:
+                        print("swap")
+                        sample_list[x-1] = current_next_var        
+                        sample_list[x-2] = current_var
