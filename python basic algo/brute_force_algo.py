@@ -41,7 +41,7 @@ class designAlgo:
                 found = True
                 break
 
-    def string_matching (sample_string,sample_substring)
+    def string_matching (sample_string,sample_substring):
         sample_string = "not in nothing"
         sample_substring = "nothing"
         
@@ -51,14 +51,15 @@ class designAlgo:
             print (x)
             for y in range (len(sample_substring)):
                 print(sample_string[x+y] + sample_substring[y])
-                if len(sample_string)-x-1 == len(sample_substring)-1:
-                    print("match")
-                    break
                 if sample_string[x+y] == sample_substring[y]:
                     if (len(sample_substring)-1) == y :
                         index = x
                         found = True
                         break
+                
+                if len(sample_string)-x-1 == len(sample_substring)-1:
+                    print("match")
+                    break
                 
             if found == True:
                 break
