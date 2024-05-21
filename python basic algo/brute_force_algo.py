@@ -45,19 +45,12 @@ class designAlgo:
         # duration: thirty mins
         index = 0
         found = False
-        for x in range (len(sample_string)):
-            print (x)    
+        for x in range (len(sample_string) - len(sample_substring)+1):
             if found == True:
                 break
             for y in range (len(sample_substring)):
-                print("-")
-                print(len(sample_string)-x-1)
-                print(len(sample_substring)-1)
-                print("-")
                 if sample_string[x+y] == sample_substring[y]:
-                    print(sample_string[x+y] + sample_substring[y])
                     if len(sample_string)-x-1 == len(sample_substring)-1:
-                        print("match")
                         index = x-1
                         found = True
                         break
